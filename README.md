@@ -14,15 +14,15 @@ Here are notes to work around them:
 Installing Bazel on Ubuntu 20 WSL2
 
 First step from the Bazel docs
-> sudo apt install curl gnupg
-> curl -f https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -
-> echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
+>$ sudo apt install curl gnupg </br>
+>$ curl -f https://bazel.build/bazel-release.pub.gpg | sudo apt-key add - </br>
+>$ echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list </br>
 
 
 Second step:
-> sudo apt update && sudo apt install bazel
-> sudo apt update && sudo apt full-upgrade
-> sudo apt install bazel-1.0.0
+>$ sudo apt update && sudo apt install bazel </br>
+>$ sudo apt update && sudo apt full-upgrade </br>
+>$ sudo apt install bazel-1.0.0 </br>
 
 If you get an error that tells you the public key is not available:
 
@@ -41,18 +41,18 @@ gpg: keyserver receive failed: No dirmngr
 
 What you could do is to remove gpg and use gnupg.
 
-> sudo apt remove gpg
-> sudo apt-get update -y
-> sudo apt-get install -y gnupg1 
+>$ sudo apt remove gpg </br>
+>$ sudo apt-get update -y </br>
+>$ sudo apt-get install -y gnupg1  </br>
 
 Then run apt-key again:
-> sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3D5919B448457EE0
+>$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3D5919B448457EE0 </br>
 
 Perfomr the steps again to install bazel.
 
 At this point, bazel should now be installed.
 
-> bazel --version
+>$ bazel --version </br>
 bazel 3.4.1
 
 
